@@ -1,7 +1,7 @@
 from math import gcd as mathgcd
 from time import sleep as timesleep
 from click import clear as clicknclear
-import colorama
+from colorama import Fore, init, Style
 # WELCOME TO THE COMMENTS. HERE YOU CAN READ WHAT MOST THINGS DO IN THE CODE.
 # insert fixes the weird problem
 #1 imports 'from math import gcd as math.gcd' imports the greatest common divisor for simplifying fractions
@@ -20,14 +20,13 @@ def reset():
     timesleep(.5)
     clicknclear()
     start()
-
+init()
 print("Starting Program...")
-
-#3 Makes the program wait
 timesleep(.5)
+#3 Makes the program wait
+
 
 ermaxcrown = ('''
-
 10                10                10
 01  E            r M a          x   01
 10    I       n        c       .    10
@@ -42,8 +41,9 @@ ermaxcrown = ('''
 010010 011001010110110101101001 100110
 ''')
 
-print(ermaxcrown)
 
+print(Fore.YELLOW, ermaxcrown, Style.RESET_ALL)
+#print(Style.RESET_ALL)
 #4 it defines the variable to 'goto' the code
 def start():
 
@@ -59,17 +59,27 @@ def start():
                     |             
                    \_/            
                               
-                    ?             ?
-                  -----    ''' + operation + '''    -----
+                    ''' + Fore.GREEN + '''?             ?''' + Style.RESET_ALL + '''
+                  -----    ''' + operation + '''    -----''' + Fore.GREEN + '''
                     ?             ?
 
-                   ''')
+                   ''' + Style.RESET_ALL)
         print(num1example)
 
-        numerator1 = int(input('''                 -----------        -------
-Please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: '''))
-
-
+        numerator1 = input('''                 -----------        -------
+Please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+        try:
+            int(numerator1)
+        except:
+            if numerator1 == 'reset':
+                print('restarting...')
+                timesleep(.3)
+                print('dataclear')
+                timesleep(.2)
+                clicknclear()
+                start()
+            else:
+                oops()
         print('------------------------------------------------------------------------------------------')
 
         denom1example = ('''  
@@ -86,7 +96,18 @@ Please enter the |numerator| of the |first| fraction as seen above, or type 'res
 
         denominator1 = int(input('''                 -------------        -------
 Please enter the |denominator| of the |first| fraction as seen above, or type 'reset' to reset: '''))
-
+        try:
+            int(denominator1)
+        except:
+            if denominator1 == 'reset':
+                print('restarting...')
+                timesleep(.3)
+                print('dataclear')
+                timesleep(.2)
+                clicknclear()
+                start()
+            else:
+                oops()
 
         print('''------------------------------------------------------------------------------------------
         ''')
@@ -121,7 +142,18 @@ Please enter the |denominator| of the |first| fraction as seen above, or type 'r
 
         numerator2 = int(input('''                 -----------        --------
 Please enter the |numerator| of the |second| fraction as seen above, or type 'reset' to reset: '''))
-        
+        try:
+            int(numerator2)
+        except:
+            if numerator2 == 'reset':
+                print('restarting...')
+                timesleep(.3)
+                print('dataclear')
+                timesleep(.2)
+                clicknclear()
+                start()
+            else:
+                oops()
 
         print('------------------------------------------------------------------------------------------')
 
@@ -139,6 +171,18 @@ Please enter the |numerator| of the |second| fraction as seen above, or type 're
 
         denominator2 = int(input('''                -------------        --------
 Please enter the |denominator| of the |second| fraction as seen above, or type 'reset' to reset: '''))
+        try:
+            int(denominator2)
+        except:
+            if denominator2 == 'reset':
+                print('restarting...')
+                timesleep(.3)
+                print('dataclear')
+                timesleep(.2)
+                clicknclear()
+                start()
+            else:
+                oops()
 
 
         print('''------------------------------------------------------------------------------------------
@@ -452,18 +496,9 @@ Please enter the |denominator| of the |second| fraction as seen above, or type '
                    ''' + str(multi_denom1_X_denom2) + ''' ''')
 
     #17 easter eggs
-    elif operation == "dat krown boi":
-        print('hey ya found da easter egg great job')
-        timesleep(2)
+    elif operation == "clear":
         clicknclear()
         start()
-
-    elif operation == "fbi open up":
-        print('E.T. M.W.')
-        timesleep(2)
-        clicknclear()
-        start()
-
     else:
         oops()
     
