@@ -1,6 +1,7 @@
 from math import gcd as mathgcd
 from time import sleep as timesleep
 from click import clear as clicknclear
+import colorama
 # WELCOME TO THE COMMENTS. HERE YOU CAN READ WHAT MOST THINGS DO IN THE CODE.
 # insert fixes the weird problem
 #1 imports 'from math import gcd as math.gcd' imports the greatest common divisor for simplifying fractions
