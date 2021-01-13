@@ -48,7 +48,11 @@ print(Fore.YELLOW, ermaxcrown, Style.RESET_ALL)
 def start():
 
 #5 it stores the operation
-    operation = input('Please enter the operation you want to do [+, -, * (Multiplication), / (Division)]: ')
+    operation = input('Please enter the operation you want to do [+, -, * (Multiplication), / (Division) or type "clear"]: ')
+
+    #number colors
+    
+    numcolor = Fore.BLUE
 
 #6 it just separates
     print('------------------------------------------------------------------------------------------')
@@ -59,8 +63,8 @@ def start():
                     |             
                    \_/            
                               
-                    ''' + Fore.GREEN + '''?             ?''' + Style.RESET_ALL + '''
-                  -----    ''' + operation + '''    -----''' + Fore.GREEN + '''
+                    ''' + numcolor + '''?             ?''' + Style.RESET_ALL + '''
+                  -----    ''' + operation + '''    -----''' + numcolor + '''
                     ?             ?
 
                    ''' + Style.RESET_ALL)
@@ -69,7 +73,7 @@ def start():
         numerator1 = input('''                 -----------        -------
 Please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
         try:
-            int(numerator1)
+            numerator1 = int(numerator1)
         except:
             if numerator1 == 'reset':
                 print('restarting...')
@@ -97,7 +101,7 @@ Please enter the |numerator| of the |first| fraction as seen above, or type 'res
         denominator1 = int(input('''                 -------------        -------
 Please enter the |denominator| of the |first| fraction as seen above, or type 'reset' to reset: '''))
         try:
-            int(denominator1)
+            denominator1 = int(denominator1)
         except:
             if denominator1 == 'reset':
                 print('restarting...')
@@ -143,7 +147,7 @@ Please enter the |denominator| of the |first| fraction as seen above, or type 'r
         numerator2 = int(input('''                 -----------        --------
 Please enter the |numerator| of the |second| fraction as seen above, or type 'reset' to reset: '''))
         try:
-            int(numerator2)
+            numerator2 = int(numerator2)
         except:
             if numerator2 == 'reset':
                 print('restarting...')
@@ -172,7 +176,7 @@ Please enter the |numerator| of the |second| fraction as seen above, or type 're
         denominator2 = int(input('''                -------------        --------
 Please enter the |denominator| of the |second| fraction as seen above, or type 'reset' to reset: '''))
         try:
-            int(denominator2)
+            denominator1 = int(denominator2)
         except:
             if denominator2 == 'reset':
                 print('restarting...')
