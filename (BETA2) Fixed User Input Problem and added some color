@@ -3,7 +3,13 @@ from time import sleep as timesleep
 from click import clear as clicknclear
 from colorama import Fore, init, Style
 # WELCOME TO THE COMMENTS. HERE YOU CAN READ WHAT MOST THINGS DO IN THE CODE.
-# insert fixes the weird problem
+
+
+
+#NOTE THE COMMENTS ARE MESSED UP IN BETA AND ALFA VERSIONS
+
+
+
 #1 imports 'from math import gcd as math.gcd' imports the greatest common divisor for simplifying fractions
 #2 imports 'sleep' is the 'wait' function in python (makes the code pause for however long specified)
 def oops():
@@ -56,7 +62,8 @@ def start():
     
     numcolor = Style.BRIGHT + Fore.BLUE
     arrowcolor = Style.BRIGHT + Fore.GREEN
-
+    missnumcolor = Style.BRIGHT + Fore.RED
+    connumcolor = Style.BRIGHT + Fore.YELLOW
 
 #6 it just separates
     print('------------------------------------------------------------------------------------------')
@@ -67,8 +74,8 @@ def start():
                     |             
                    \_/            
                               
-                    ''' + numcolor + '''?             ?''' + Style.RESET_ALL + '''
-                  -----    ''' + operation + '''    -----''' + numcolor + '''
+                    ''' + missnumcolor + '''?             ?''' + Style.RESET_ALL + '''
+                  -----    ''' + operation + '''    -----''' + missnumcolor + '''
                     ?             ?
 
                    ''' + Style.RESET_ALL)
@@ -104,8 +111,8 @@ please enter the |numerator| of the |first| fraction as seen above, or type 'res
 
         denom1example = ('''  
                               
-                    ''' + numcolor + str(numerator1) + '''             ?''' + Style.RESET_ALL + '''
-                  -----    ''' + operation + '''    -----''' + numcolor + '''
+                    ''' + numcolor + str(numerator1) + missnumcolor + '''             ?''' + Style.RESET_ALL + '''
+                  -----    ''' + operation + '''    -----''' + missnumcolor + '''
                     ?             ?''' + arrowcolor +'''
                     _
                    / \     
@@ -128,8 +135,8 @@ Please enter the |denominator| of the |first| fraction as seen above, or type 'r
                     print('\n\nTry Again!\n\n')
                     timesleep(1)
                     print(denom1example)
-                    denominator1 = input('''                 -----------        -------
-please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+                    denominator1 = input('''                 -------------        -------
+Please enter the |denominator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
                     try:
                         denominator1 = int(denominator1)
                         error = 0
@@ -148,9 +155,9 @@ please enter the |numerator| of the |first| fraction as seen above, or type 'res
 
         if frac1neg == 'reset':
             reset()
-        if frac1neg == 'n':
+        if frac1neg == 'n' or '+':
             frac1neg = '+'
-        elif frac1neg == 'y':
+        elif frac1neg == 'y' or '-':
             frac1neg = '-'
         else:
             oops()
@@ -164,15 +171,15 @@ please enter the |numerator| of the |first| fraction as seen above, or type 'res
                                   |
                                  \_/
                               
-                    ''' + numcolor + str(numerator1) + '''             ?''' + Style.RESET_ALL + '''
+                    ''' + numcolor + str(numerator1) + missnumcolor + '''             ?''' + Style.RESET_ALL + '''
                 ''' + frac1neg + ''' -----    ''' + operation + '''    -----
-                    ''' + numcolor + str(denominator1) + '''             ?
+                    ''' + numcolor + str(denominator1) + missnumcolor + '''             ?
                     
                         ''' + Style.RESET_ALL)
         print(num2example)
 
-        numerator2 = int(input('''                 -----------        --------
-Please enter the |numerator| of the |second| fraction as seen above, or type 'reset' to reset: '''))
+        numerator2 = input('''                 -----------        --------
+Please enter the |numerator| of the |second| fraction as seen above, or type 'reset' to reset: ''')
         
         try:
             numerator2 = int(numerator2)
@@ -185,8 +192,8 @@ Please enter the |numerator| of the |second| fraction as seen above, or type 're
                     print('\n\nTry Again!\n\n')
                     timesleep(1)
                     print(num2example)
-                    numerator2 = input('''                 -----------        -------
-please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+                    numerator2 = input('''                 -----------        --------
+Please enter the |numerator| of the |second| fraction as seen above, or type 'reset' to reset: ''')
                     try:
                         numerator2 = int(numerator2)
                         error = 0
@@ -202,8 +209,8 @@ please enter the |numerator| of the |first| fraction as seen above, or type 'res
         denom2example = ('''        
 
                     '''+ numcolor + str(numerator1) + '''             ''' + str(numerator2) + Style.RESET_ALL + '''
-                 ''' + frac1neg + ''' -----    ''' + operation + '''    -----
-                    ''' + numcolor + str(denominator1) + '''             ?''' + arrowcolor + '''
+                ''' + frac1neg + ''' -----    ''' + operation + '''    -----
+                    ''' + numcolor + str(denominator1) + missnumcolor + '''             ?''' + arrowcolor + '''
                                   _
                                  / \   
                                   |
@@ -211,8 +218,8 @@ please enter the |numerator| of the |first| fraction as seen above, or type 'res
                         ''' + Style.RESET_ALL)
         print(denom2example)
 
-        denominator2 = int(input('''                -------------        --------
-Please enter the |denominator| of the |second| fraction as seen above, or type 'reset' to reset: '''))
+        denominator2 = input('''                 -------------        --------
+Please enter the |denominator| of the |second| fraction as seen above, or type 'reset' to reset: ''')
  
         try:
             denominator2 = int(denominator2)
@@ -225,8 +232,8 @@ Please enter the |denominator| of the |second| fraction as seen above, or type '
                     print('\n\nTry Again!\n\n')
                     timesleep(1)
                     print(denom2example)
-                    denominator2 = input('''                 -----------        -------
-please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+                    denominator2 = input('''                 -------------        --------
+Please enter the |denominator| of the |second| fraction as seen above, or type 'reset' to reset: ''')
                     try:
                         denominator2 = int(denominator2)
                         error = 0
@@ -263,11 +270,11 @@ please enter the |numerator| of the |first| fraction as seen above, or type 'res
         final_input = ('''Your input:
                               
                               
-                    ''' + str(numerator1) + '''             ''' + str(numerator2) + '''
-                 ''' + frac1neg + ''' -----    ''' + operation + '''   ''' + frac2neg + ''' -----
-                    ''' + str(denominator1) + '''             ''' + str(denominator2) + '''
+                    ''' + connumcolor + str(numerator1) + '''             ''' + str(numerator2) + Style.RESET_ALL + '''
+                ''' + frac1neg + ''' -----    ''' + operation + '''   ''' + frac2neg + ''' -----
+                    ''' + connumcolor + str(denominator1) + '''             ''' + str(denominator2) + '''
                                      
-                        ''')
+                        ''' + Style.RESET_ALL)
         print(final_input)
         timesleep(.5)
         print('------------------------------------------------------------------------------------------')
@@ -582,7 +589,10 @@ please enter the |numerator| of the |first| fraction as seen above, or type 'res
     if ex == 'n':
         exit()
     else:
-        reset()
+        print('\n' * 10)
+        print(connumcolor + '------------------------------------------------------------------------------------------\n' * 10 + Style.RESET_ALL)
+        print('\n' * 10)
+        start()
     
 #25 'start' starts all the code as defined in comment #4
 start()
