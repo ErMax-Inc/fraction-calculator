@@ -9,9 +9,9 @@ from colorama import Fore, init, Style
 def oops():
     clicknclear()
     print('Please check what you have typed in and try again.')
-    timesleep(1.5)
+    timesleep(1)
     print("Restarting...")
-    timesleep(.5)
+    timesleep(.1)
     clicknclear()
     start()
 
@@ -48,16 +48,20 @@ print(Fore.YELLOW, ermaxcrown, Style.RESET_ALL)
 def start():
 
 #5 it stores the operation
+    error = 0
+
     operation = input('Please enter the operation you want to do [+, -, * (Multiplication), / (Division) or type "clear"]: ')
 
     #number colors
     
-    numcolor = Fore.BLUE
+    numcolor = Style.BRIGHT + Fore.BLUE
+    arrowcolor = Style.BRIGHT + Fore.GREEN
+
 
 #6 it just separates
     print('------------------------------------------------------------------------------------------')
     if operation == '+' or operation == '*' or operation == '/' or operation == '-':
-        num1example = ('''     
+        num1example = (arrowcolor + '''     
 
                     |             
                     |             
@@ -72,53 +76,76 @@ def start():
 
         numerator1 = input('''                 -----------        -------
 Please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+
         try:
             numerator1 = int(numerator1)
         except:
             if numerator1 == 'reset':
-                print('restarting...')
-                timesleep(.3)
-                print('dataclear')
-                timesleep(.2)
-                clicknclear()
-                start()
+                reset()
             else:
-                oops()
+                error = error + 1
+                while error > 0:
+                    print('\n\nTry Again!\n\n')
+                    timesleep(1)
+                    print(num1example)
+                    numerator1 = input('''                 -----------        -------
+please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+                    try:
+                        numerator1 = int(numerator1)
+                        error = 0
+                        if error == 0:
+                            break
+                    except:
+                        if numerator1 == 'reset':
+                            error = 0
+                            reset()
+
         print('------------------------------------------------------------------------------------------')
 
         denom1example = ('''  
                               
-                    ''' + str(numerator1) + '''             ?
-                  -----    ''' + operation + '''    -----
-                    ?             ?
+                    ''' + numcolor + str(numerator1) + '''             ?''' + Style.RESET_ALL + '''
+                  -----    ''' + operation + '''    -----''' + numcolor + '''
+                    ?             ?''' + arrowcolor +'''
                     _
                    / \     
                     |
                     |
-                        ''')
+                        ''' + Style.RESET_ALL)
         print(denom1example)
 
-        denominator1 = int(input('''                 -------------        -------
-Please enter the |denominator| of the |first| fraction as seen above, or type 'reset' to reset: '''))
+        denominator1 = input('''                 -------------        -------
+Please enter the |denominator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+
         try:
             denominator1 = int(denominator1)
         except:
             if denominator1 == 'reset':
-                print('restarting...')
-                timesleep(.3)
-                print('dataclear')
-                timesleep(.2)
-                clicknclear()
-                start()
+                reset()
             else:
-                oops()
+                error = error + 1
+                while error > 0:
+                    print('\n\nTry Again!\n\n')
+                    timesleep(1)
+                    print(denom1example)
+                    denominator1 = input('''                 -----------        -------
+please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+                    try:
+                        denominator1 = int(denominator1)
+                        error = 0
+                        if error == 0:
+                            break
+                    except:
+                        if denominator1 == 'reset':
+                            error = 0
+                            reset()
 
         print('''------------------------------------------------------------------------------------------
         ''')
 
 #7 it stores if the fraction will be negative
         frac1neg = input('''Do you want the fraction to be negative? (y/n) Type 'reset' to reset.''')
-        
+
         if frac1neg == 'reset':
             reset()
         if frac1neg == 'n':
@@ -131,76 +158,98 @@ Please enter the |denominator| of the |first| fraction as seen above, or type 'r
         print('''
 ------------------------------------------------------------------------------------------''')
 
-        num2example = ('''
+        num2example = (arrowcolor + '''
 
                                   |
                                   |
                                  \_/
                               
-                    ''' + str(numerator1) + '''             ?
+                    ''' + numcolor + str(numerator1) + '''             ?''' + Style.RESET_ALL + '''
                 ''' + frac1neg + ''' -----    ''' + operation + '''    -----
-                    ''' + str(denominator1) + '''             ?
+                    ''' + numcolor + str(denominator1) + '''             ?
                     
-                        ''')
+                        ''' + Style.RESET_ALL)
         print(num2example)
 
         numerator2 = int(input('''                 -----------        --------
 Please enter the |numerator| of the |second| fraction as seen above, or type 'reset' to reset: '''))
+        
         try:
             numerator2 = int(numerator2)
         except:
             if numerator2 == 'reset':
-                print('restarting...')
-                timesleep(.3)
-                print('dataclear')
-                timesleep(.2)
-                clicknclear()
-                start()
+                reset()
             else:
-                oops()
+                error = error + 1
+                while error > 0:
+                    print('\n\nTry Again!\n\n')
+                    timesleep(1)
+                    print(num2example)
+                    numerator2 = input('''                 -----------        -------
+please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+                    try:
+                        numerator2 = int(numerator2)
+                        error = 0
+                        if error == 0:
+                            break
+                    except:
+                        if numerator2 == 'reset':
+                            error = 0
+                            reset()
 
         print('------------------------------------------------------------------------------------------')
 
         denom2example = ('''        
 
-                    ''' + str(numerator1) + '''             ''' + str(numerator2) + '''
+                    '''+ numcolor + str(numerator1) + '''             ''' + str(numerator2) + Style.RESET_ALL + '''
                  ''' + frac1neg + ''' -----    ''' + operation + '''    -----
-                    ''' + str(denominator1) + '''             ?
+                    ''' + numcolor + str(denominator1) + '''             ?''' + arrowcolor + '''
                                   _
                                  / \   
                                   |
                                   |
-                        ''')
+                        ''' + Style.RESET_ALL)
         print(denom2example)
 
         denominator2 = int(input('''                -------------        --------
 Please enter the |denominator| of the |second| fraction as seen above, or type 'reset' to reset: '''))
+ 
         try:
-            denominator1 = int(denominator2)
+            denominator2 = int(denominator2)
         except:
             if denominator2 == 'reset':
-                print('restarting...')
-                timesleep(.3)
-                print('dataclear')
-                timesleep(.2)
-                clicknclear()
-                start()
+                reset()
             else:
-                oops()
+                error = error + 1
+                while error > 0:
+                    print('\n\nTry Again!\n\n')
+                    timesleep(1)
+                    print(denom2example)
+                    denominator2 = input('''                 -----------        -------
+please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+                    try:
+                        denominator2 = int(denominator2)
+                        error = 0
+                        if error == 0:
+                            break
+                    except:
+                        if denominator2 == 'reset':
+                            error = 0
+                            reset()
 
 
         print('''------------------------------------------------------------------------------------------
         ''')
 
         frac2neg = input('''Do you want the fraction to be negative? (y/n) Type 'reset' to reset.''')
-
         if frac2neg == 'reset':
             reset()
-        if frac2neg == 'n':
+        if frac2neg == 'n' or '+':
             frac2neg = '+'
-        elif frac2neg == 'y':
+        elif frac2neg == 'y' or '-':
             frac2neg = '-'
         else:
+            print('please retry')
             oops()
 
         print('''
@@ -529,6 +578,11 @@ Please enter the |denominator| of the |second| fraction as seen above, or type '
                    ''' + str(denom_ans_final) + ''' ''')
 
     #24 what the text says
-    input("\n\nPress Enter to Exit.")
+    ex = input("\n\nAgain?(y/n)")
+    if ex == 'n':
+        exit()
+    else:
+        reset()
+    
 #25 'start' starts all the code as defined in comment #4
 start()
