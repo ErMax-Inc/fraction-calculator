@@ -153,14 +153,31 @@ Please enter the |denominator| of the |first| fraction as seen above, or type 'r
 #7 it stores if the fraction will be negative
         frac1neg = input('''Do you want the fraction to be negative? (y/n) Type 'reset' to reset.''')
 
-        if frac1neg == 'reset':
+        if frac1neg in ['reset']:
             reset()
-        if frac1neg == 'n' or '+':
+        elif frac1neg in ['n', '+']:
             frac1neg = '+'
-        elif frac1neg == 'y' or '-':
+        elif frac1neg in ['y', '-']:
             frac1neg = '-'
         else:
-            oops()
+            error = error + 1
+            while error > 0:
+                str(print('\n' * 3 + 'Please Retry' + '\n' * 3))
+                
+                frac1neg = input('''Do you want the fraction to be negative? (y/n) or Type 'reset' to reset.''')
+
+                if frac1neg in ['reset']:
+                    error = 0
+                    reset()
+                elif frac1neg in ['n', '+']:
+                    error = 0
+                    frac1neg = '+'
+                    break
+                elif frac1neg in ['y', '-']:
+                    error = 0
+                    frac1neg = '-'
+                    break
+
         
         print('''
 ------------------------------------------------------------------------------------------''')
@@ -249,15 +266,30 @@ Please enter the |denominator| of the |second| fraction as seen above, or type '
         ''')
 
         frac2neg = input('''Do you want the fraction to be negative? (y/n) Type 'reset' to reset.''')
-        if frac2neg == 'reset':
+        if frac2neg in ['reset']:
             reset()
-        if frac2neg == 'n' or '+':
+        elif frac2neg in ['n', '+']:
             frac2neg = '+'
-        elif frac2neg == 'y' or '-':
+        elif frac2neg in ['y', '-']:
             frac2neg = '-'
         else:
-            print('please retry')
-            oops()
+            error = error + 1
+            while error > 0:
+                str(print('\n' * 3 + 'Please Retry' + '\n' * 3))
+                
+                frac2neg = input('''Do you want the fraction to be negative? (y/n) or Type 'reset' to reset.''')
+
+                if frac2neg in ['reset']:
+                    error = 0
+                    reset()
+                elif frac2neg in ['n', '+']:
+                    error = 0
+                    frac2neg = '+'
+                    break
+                elif frac2neg in ['y', '-']:
+                    error = 0
+                    frac2neg = '-'
+                    break
 
         print('''
 ------------------------------------------------------------------------------------------''')
@@ -589,9 +621,9 @@ Please enter the |denominator| of the |second| fraction as seen above, or type '
     if ex == 'n':
         exit()
     else:
-        print('\n' * 10)
-        print(connumcolor + '------------------------------------------------------------------------------------------\n' * 10 + Style.RESET_ALL)
-        print('\n' * 10)
+        str(print('\n' * 10))
+        str(print('------------------------------------------------------------------------------------------\n' * 10))
+        str(print('\n' * 10))
         start()
     
 #25 'start' starts all the code as defined in comment #4
