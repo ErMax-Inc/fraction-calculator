@@ -6,7 +6,7 @@ from colorama import Fore, init, Style
 
 
 
-#NOTE THE COMMENTS ARE MESSED UP IN BETA AND ALFA VERSIONS
+#NOTE THE COMMENTS ARE MESSED UP IN BETA AND ALFA VERSIONS!
 
 
 
@@ -588,9 +588,123 @@ Please enter the |denominator| of the |second| fraction as seen above, or type '
                    ''' + str(multi_denom1_X_denom2) + ''' ''')
 
     #17 easter eggs
+    elif operation == 'gcd':
+        num1example = (arrowcolor + '''     
+
+                    |             
+                    |             
+                   \_/            
+                              
+                    ''' + missnumcolor + '''?             ?''' + Style.RESET_ALL + '''
+                  -----    ''' + operation + '''    -----''' + missnumcolor + '''
+                    ?             ?
+
+                   ''' + Style.RESET_ALL)
+        print(num1example)
+
+        numerator1 = input('''                 -----------        -------
+Please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+
+        try:
+            numerator1 = int(numerator1)
+        except:
+            if numerator1 == 'reset':
+                reset()
+            else:
+                error = error + 1
+                while error > 0:
+                    print('\n\nTry Again!\n\n')
+                    timesleep(1)
+                    print(num1example)
+                    numerator1 = input('''                 -----------        -------
+please enter the |numerator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+                    try:
+                        numerator1 = int(numerator1)
+                        error = 0
+                        if error == 0:
+                            break
+                    except:
+                        if numerator1 == 'reset':
+                            error = 0
+                            reset()
+
+        print('------------------------------------------------------------------------------------------')
+
+        denom1example = ('''  
+                              
+                    ''' + numcolor + str(numerator1) + missnumcolor + '''             ?''' + Style.RESET_ALL + '''
+                  -----    ''' + operation + '''    -----''' + missnumcolor + '''
+                    ?             ?''' + arrowcolor +'''
+                    _
+                   / \     
+                    |
+                    |
+                        ''' + Style.RESET_ALL)
+        print(denom1example)
+
+        denominator1 = input('''                 -------------        -------
+Please enter the |denominator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+
+        try:
+            denominator1 = int(denominator1)
+        except:
+            if denominator1 == 'reset':
+                reset()
+            else:
+                error = error + 1
+                while error > 0:
+                    print('\n\nTry Again!\n\n')
+                    timesleep(1)
+                    print(denom1example)
+                    denominator1 = input('''                 -------------        -------
+Please enter the |denominator| of the |first| fraction as seen above, or type 'reset' to reset: ''')
+                    try:
+                        denominator1 = int(denominator1)
+                        error = 0
+                        if error == 0:
+                            break
+                    except:
+                        if denominator1 == 'reset':
+                            error = 0
+                            reset()
+
+        print('''------------------------------------------------------------------------------------------
+        ''')
+
+#7 it stores if the fraction will be negative
+
+        num = numerator1
+        denom = denominator1
+        gcd = mathgcd(num,denom)
+        #21 results
+        num_ans_final = int(num / gcd)
+        denom_ans_final = int(denom / gcd)
+        print('''------------------------------------------------------------------------------------------
+        ''')
+        #22 prints out gcd
+        print('Greatest common divisor:', gcd)
+        print('''
+    ------------------------------------------------------------------------------------------''')
+        #23 result of calculation
+        print('''Your result is:
+                        
+                       ''' + str(num_ans_final) + '''
+                    ''' + '' + ''' -----
+                       ''' + str(denom_ans_final) + ''' ''')
+
+        #24 what the text says
+        ex = input("\n\nAgain?(y/n)")
+        if ex == 'n':
+            exit()
+        else:
+            str(print('\n' * 10))
+            str(print('------------------------------------------------------------------------------------------\n' * 10))
+            str(print('\n' * 10))
+            start()
     elif operation == "clear":
         clicknclear()
         start()
+    
     else:
         oops()
     
@@ -613,7 +727,7 @@ Please enter the |denominator| of the |second| fraction as seen above, or type '
     print('''Your result is:
                         
                    ''' + str(num_ans_final) + '''
-                ''' + finalfracneg + ''' -----
+                ''' + '' + ''' -----
                    ''' + str(denom_ans_final) + ''' ''')
 
     #24 what the text says
