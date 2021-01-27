@@ -589,6 +589,7 @@ Please enter the |denominator| of the |second| fraction as seen above, or type '
 
     
     elif operation == 'gcd':
+        operation = str('GCD MODE')
         num1example = (arrowcolor + '''     
 
                     |             
@@ -671,7 +672,6 @@ Please enter the |denominator| of the |first| fraction as seen above, or type 'r
         print('''------------------------------------------------------------------------------------------
         ''')
 
-#7 it stores if the fraction will be negative
 
         num = numerator1
         denom = denominator1
@@ -686,7 +686,7 @@ Please enter the |denominator| of the |first| fraction as seen above, or type 'r
         print('''
     ------------------------------------------------------------------------------------------''')
         #23 result of calculation
-        print('''Your result is:
+        print('''Simplified result is:
                         
                        ''' + str(num_ans_final) + '''
                     ''' + '' + ''' -----
