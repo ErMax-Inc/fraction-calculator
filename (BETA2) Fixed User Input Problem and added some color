@@ -587,7 +587,7 @@ Please enter the |denominator| of the |second| fraction as seen above, or type '
               ''' + finalfracneg + '''   -----
                    ''' + str(multi_denom1_X_denom2) + ''' ''')
 
-    #17 easter eggs
+    
     elif operation == 'gcd':
         num1example = (arrowcolor + '''     
 
@@ -595,9 +595,9 @@ Please enter the |denominator| of the |second| fraction as seen above, or type '
                     |             
                    \_/            
                               
-                    ''' + missnumcolor + '''?             ?''' + Style.RESET_ALL + '''
-                  -----    ''' + operation + '''    -----''' + missnumcolor + '''
-                    ?             ?
+                    ''' + missnumcolor + '''?              ''' + Style.RESET_ALL + '''
+                  -----    ''' + operation + '''         ''' + missnumcolor + '''
+                    ?              
 
                    ''' + Style.RESET_ALL)
         print(num1example)
@@ -632,9 +632,9 @@ please enter the |numerator| of the |first| fraction as seen above, or type 'res
 
         denom1example = ('''  
                               
-                    ''' + numcolor + str(numerator1) + missnumcolor + '''             ?''' + Style.RESET_ALL + '''
-                  -----    ''' + operation + '''    -----''' + missnumcolor + '''
-                    ?             ?''' + arrowcolor +'''
+                    ''' + numcolor + str(numerator1) + missnumcolor + '''              ''' + Style.RESET_ALL + '''
+                  -----    ''' + operation + '''         ''' + missnumcolor + '''
+                    ?              ''' + arrowcolor +'''
                     _
                    / \     
                     |
