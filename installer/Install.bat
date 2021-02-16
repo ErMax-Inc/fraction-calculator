@@ -17,7 +17,7 @@ echo License:
 echo.
 echo MIT License
 echo.
-echo Copyright (c) 2021 ErMax Inc.
+echo Copyright (c) 2020 ErMax Inc.
 echo.
 echo Permission is hereby granted, free of charge, to any person obtaining a copy
 echo of this software and associated documentation files (the "Software"), to deal
@@ -46,19 +46,20 @@ cd %PROGRAMFILES%
 md FraCal
 cd %~dp0
 cd app
-move "Fraction Calculator.exe" "C:\Program Files\FraCal"
-move "Version.txt" "C:\Program Files\FraCal"
-move "License.txt" "C:\Program Files\FraCal"
-move "Uninstall.bat" "C:\Program Files\FraCal"
+copy "Fraction Calculator.exe" "C:\Program Files\FraCal"
+copy "Version.txt" "C:\Program Files\FraCal"
+copy "License.txt" "C:\Program Files\FraCal"
+copy "Uninstall.bat" "C:\Program Files\FraCal"
 cd..
 cd nircmd
 nircmd.exe shortcut "%PROGRAMFILES%\FraCal\Fraction Calculator.exe" "~$folder.programs$\Fraction Calculator" "Fraction Calculator"
 nircmd.exe shortcut "%PROGRAMFILES%\FraCal\Uninstall.bat" "~$folder.programs$\Fraction Calculator" "Uninstall"
 echo.
-set /p out=Installation finished! Delete installation folder? Type 'y' to delete, or press Enter to exit. 
+set /p out=Installation finished! Delete installation folder? (y/N) 
 if %out%==y (
 cd..
 cd..
 start rd "Frac Calc" /s /q
 exit
 )
+else ( exit )
