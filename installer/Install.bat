@@ -9,9 +9,6 @@ if '%errorlevel%' NEQ '0' (    echo Requesting administrative privileges...    g
     echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"  
     echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"  
     "%temp%\getadmin.vbs"  
-    echo This program does not have admin power
-    echo Press enter to exit
-    pause
     exit /B
 :gotAdmin
 
