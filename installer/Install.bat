@@ -60,5 +60,6 @@ if %out%==y (
 cd..
 cd..
 start rd "Frac Calc" /s /q
+start exit
 exit
 )
