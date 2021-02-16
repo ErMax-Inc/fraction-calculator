@@ -56,7 +56,7 @@ def start():
 #5 it stores the operation
     error = 0
 
-    operation = input('Please enter the operation you want to do [+, -, * (Multiplication), / (Division), gcd (GratestCommonFactor) or type "clear"]: ')
+    operation = input('Please enter the operation you want to do [+, -, *(Multiplication), /(Division), gcd or type "clear"]: ')
 
     #number colors
     
