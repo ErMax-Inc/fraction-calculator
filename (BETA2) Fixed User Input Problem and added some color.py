@@ -677,6 +677,17 @@ Please enter the |denominator| of the |first| fraction as seen above, or type 'r
         denom = denominator1
         gcd = mathgcd(num,denom)
         #21 results
+        num = str(num)
+        denom = str(denom)
+        if int(num.find('-')) != int(-1) and int(denom.find('-')) != int(-1):
+            num = int(num)
+            denom = int(denom)
+            num = abs(num)
+            denom = abs(denom)
+            
+        else:
+            num = int(num)
+            denom = int(denom)
         num_ans_final = int(num / gcd)
         denom_ans_final = int(denom / gcd)
         print('''------------------------------------------------------------------------------------------
